@@ -58,14 +58,14 @@ For every Codex-assisted change:
 
 ### Session 1 — Professional setup and repo hygiene
 
-- **What I learned:** The difference between durable Codex instructions and public project documentation; why project structure should be agreed before endpoints; the first version of a compact modular monolith for an ASP.NET Core portfolio project; why the domain layer should not depend on infrastructure.
-- **What I struggled with:** The reason for choosing this exact architecture needed clarification, especially the direction of dependencies.
-- **Codex features I used:** Guided prediction, small approved change, foundation-file generation, diff review prompt, progress tracking.
-- **Artifacts I produced:** `AGENTS.md` and `README.md`.
-- **Evidence (tests/build/diff):** Files were created and manually reviewed. No build/tests yet because no application code exists. Git command is not available from the current Codex environment.
-- **Self-rating (Needs practice / Working knowledge / Confident):** Working knowledge for README vs AGENTS.md and dependency direction; needs practice applying architecture rules in code.
-- **What to study next:** Architecture tradeoffs, solution scaffolding, and Git installation/PATH verification outside this environment.
-- **Curriculum changes:** Keep Session 2 focused on architecture and domain modeling before database/code generation. Add a short architecture-decision exercise before scaffolding projects. Add a Git setup checkpoint before the first real commit.
+- **What I learned:** The difference between durable Codex instructions and public project documentation; why project structure should be agreed before endpoints; the first version of a compact modular monolith for an ASP.NET Core portfolio project; why the domain layer should not depend on infrastructure; the difference between local commits, remotes, pushes, GitHub login, and cached credentials.
+- **What I struggled with:** The reason for choosing this exact architecture needed clarification, especially the direction of dependencies. GitHub account switching on Windows caused confusion because cached credentials tried to push as the wrong account.
+- **Codex features I used:** Guided prediction, small approved change, foundation-file generation, diff review prompt, progress tracking, Git troubleshooting support.
+- **Artifacts I produced:** `AGENTS.md`, `README.md`, and the first local/GitHub-backed Git commit.
+- **Evidence (tests/build/diff):** Files were created and manually reviewed. No build/tests yet because no application code exists. Git commit verified: `44a7f06 docs: add project foundation and Codex workflow rules`. Remote verified: `https://github.com/OlaNaji/ai-ticket-followup-agent.git`.
+- **Self-rating (Needs practice / Working knowledge / Confident):** Working knowledge for README vs AGENTS.md, dependency direction, and basic local-to-remote Git flow; needs practice applying architecture rules in code and handling multi-account GitHub credentials.
+- **What to study next:** Architecture tradeoffs, domain modeling, first architecture decision record, and solution scaffolding.
+- **Curriculum changes:** Keep Session 2 focused on architecture and domain modeling before database/code generation. Add a short architecture-decision exercise before scaffolding projects. Keep Git/GitHub checks at the start and end of each future session.
 
 ### Session 2 — Domain and database design
 
