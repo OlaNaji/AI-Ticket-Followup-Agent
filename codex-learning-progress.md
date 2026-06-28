@@ -69,14 +69,14 @@ For every Codex-assisted change:
 
 ### Session 2 — Domain and database design
 
-- **What I learned:**
-- **What I struggled with:**
-- **Codex features I used:**
-- **Artifacts I produced:**
-- **Evidence (tests/build/diff):**
-- **Self-rating (Needs practice / Working knowledge / Confident):**
-- **What to study next:**
-- **Curriculum changes:**
+- **What I learned:** What an ADR is and why architectural decisions should be recorded; why this project uses a compact modular monolith; first domain concepts for tickets, users, priorities, statuses, AI suggestions, approvals, and audit logs; the difference between an AI suggestion and an approved business change.
+- **What I struggled with:** Deciding whether users and due dates belong in the first version. Final decision: include a simple domain User and optional DueDate now, but delay full ASP.NET Identity authentication until later.
+- **Codex features I used:** Prediction before generation, design-document drafting, review-driven refinement, diff/status inspection, approval checkpoint.
+- **Artifacts I produced:** `docs/adr/0001-use-compact-modular-monolith.md` and `docs/domain-model.md`.
+- **Evidence (tests/build/diff):** Documentation-only change. No build/tests required yet because no application code exists.
+- **Self-rating (Needs practice / Working knowledge / Confident):** Working knowledge for ADR purpose and domain concepts; needs practice translating the domain model into C# entities and tests.
+- **What to study next:** Scaffold the .NET solution/projects, create the first domain enums/entities, and add the first unit tests.
+- **Curriculum changes:** Session 3 should include solution scaffolding plus the first small domain-code slice, instead of jumping directly to API endpoints.
 
 ### Session 3 — API foundation
 
