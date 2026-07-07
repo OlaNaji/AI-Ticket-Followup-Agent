@@ -80,14 +80,14 @@ For every Codex-assisted change:
 
 ### Session 3 — API foundation
 
-- **What I learned:**
-- **What I struggled with:**
-- **Codex features I used:**
-- **Artifacts I produced:**
-- **Evidence (tests/build/diff):**
-- **Self-rating (Needs practice / Working knowledge / Confident):**
-- **What to study next:**
-- **Curriculum changes:**
+- **What I learned:** Why the domain project comes before the API; how a factory method can protect business invariants; why `Guid` can be useful for domain-created IDs; why `DateTimeOffset` is safer for audit/business timestamps; the basics of xUnit `[Fact]`, `[Theory]`, and assertions; the difference between factory creation and constructor creation.
+- **What I struggled with:** Understanding test implementation for the first time; deciding whether priority should be defaulted or required; understanding which rules belong in the domain versus the future application layer; whether calling domain methods in tests creates database rows later.
+- **Codex features I used:** Prediction before coding, project scaffolding, test-first review questions, code generation, explanation of tradeoffs, test execution and diagnosis.
+- **Artifacts I produced:** `FollowUpAgent.sln`, `src/FollowUpAgent.Domain`, `tests/FollowUpAgent.Domain.Tests`, `.gitignore`, `Ticket`, `TicketStatus`, `TicketPriority`, `User`, `UserRole`, ticket creation tests, and user creation tests.
+- **Evidence (tests/build/diff):** `dotnet test FollowUpAgent.sln --no-restore` passed with 18 tests. A separate parallel domain build hit a temporary file lock while the test build was compiling; the successful test run compiled the projects and verified the code.
+- **Self-rating (Needs practice / Working knowledge / Confident):** Working knowledge for reading basic tests and factory-method creation; needs practice for writing tests independently and understanding unit tests versus database/integration tests.
+- **What to study next:** Review the generated domain code, understand Arrange/Act/Assert, then commit the Session 3 slice. Next coding step should add controlled status-change behavior rather than jumping to API endpoints.
+- **Curriculum changes:** Spend extra time in Session 3 on testing fundamentals before moving to API. Session 4 should start with domain behavior methods and tests, then move toward application use cases.
 
 ### Session 4 — Persistence and CRUD
 

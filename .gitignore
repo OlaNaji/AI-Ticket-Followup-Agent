@@ -1,0 +1,16 @@
+# .NET build output
+bin/
+obj/
+
+# Local workspace/tool cache
+work/
+
+# IDE/editor files
+.vs/
+.vscode/
+
+# User-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
