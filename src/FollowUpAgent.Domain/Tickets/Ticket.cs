@@ -34,11 +34,87 @@ public sealed class Ticket
 
     public Guid CreatedByUserId { get; }
 
+    public Guid? AssignedToUserId { get; private set; }
+
     public DateTimeOffset CreatedAt { get; }
 
     public DateTimeOffset UpdatedAt { get; private set; }
 
     public DateTimeOffset? DueDate { get; private set; }
+
+    public DateTimeOffset? CompletedAt { get; private set; }
+
+    public void AssignTo(Guid assignedToUserId, DateTimeOffset changedAt)
+    {
+        if (assignedToUserId == Guid.Empty)
+        {
+            throw new ArgumentException("A valid assignee is required.", nameof(assignedToUserId));
+        }
+
+        EnsureTicketIsNotDone("Cannot assign a completed ticket.");
+        EnsureChangeIsNotInThePast(changedAt);
+
+        if (AssignedToUserId == assignedToUserId)
+        {
+            throw new InvalidOperationException("Ticket is already assigned to this user.");
+        }
+
+        AssignedToUserId = assignedToUserId;
+        UpdatedAt = changedAt;
+    }
+
+    public void ChangeStatus(TicketStatus newStatus, DateTimeOffset changedAt)
+    {
+        if (!Enum.IsDefined(newStatus))
+        {
+            throw new ArgumentOutOfRangeException(nameof(newStatus), newStatus, "Ticket status is invalid.");
+        }
+
+        if (newStatus == TicketStatus.Done)
+        {
+            throw new InvalidOperationException("Use Complete() to mark a ticket as done.");
+        }
+
+        EnsureTicketIsNotDone("Use Reopen() before changing the status of a completed ticket.");
+        EnsureChangeIsNotInThePast(changedAt);
+
+        if (Status == newStatus)
+        {
+            throw new InvalidOperationException("Ticket is already in this status.");
+        }
+
+        if (!IsAllowedTransition(Status, newStatus))
+        {
+            throw new InvalidOperationException($"Cannot change ticket status from {Status} to {newStatus}.");
+        }
+
+        Status = newStatus;
+        UpdatedAt = changedAt;
+    }
+
+    public void Complete(DateTimeOffset completedAt)
+    {
+        EnsureTicketIsNotDone("Ticket is already completed.");
+        EnsureChangeIsNotInThePast(completedAt);
+
+        Status = TicketStatus.Done;
+        CompletedAt = completedAt;
+        UpdatedAt = completedAt;
+    }
+
+    public void Reopen(DateTimeOffset reopenedAt)
+    {
+        if (Status != TicketStatus.Done)
+        {
+            throw new InvalidOperationException("Only completed tickets can be reopened.");
+        }
+
+        EnsureChangeIsNotInThePast(reopenedAt);
+
+        Status = TicketStatus.InProgress;
+        CompletedAt = null;
+        UpdatedAt = reopenedAt;
+    }
 
     public static Ticket Create(
         string title,
@@ -76,5 +152,33 @@ public sealed class Ticket
             createdAt,
             priority,
             dueDate);
+    }
+
+    private static bool IsAllowedTransition(TicketStatus currentStatus, TicketStatus newStatus)
+    {
+        return currentStatus switch
+        {
+            TicketStatus.New => newStatus is TicketStatus.InProgress or TicketStatus.Waiting or TicketStatus.Blocked,
+            TicketStatus.InProgress => newStatus is TicketStatus.Waiting or TicketStatus.Blocked,
+            TicketStatus.Waiting => newStatus is TicketStatus.InProgress or TicketStatus.Blocked,
+            TicketStatus.Blocked => newStatus is TicketStatus.InProgress or TicketStatus.Waiting,
+            _ => false
+        };
+    }
+
+    private void EnsureTicketIsNotDone(string message)
+    {
+        if (Status == TicketStatus.Done)
+        {
+            throw new InvalidOperationException(message);
+        }
+    }
+
+    private void EnsureChangeIsNotInThePast(DateTimeOffset changedAt)
+    {
+        if (changedAt < UpdatedAt)
+        {
+            throw new ArgumentException("Change date cannot be earlier than the last update date.", nameof(changedAt));
+        }
     }
 }

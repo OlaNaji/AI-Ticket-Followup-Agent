@@ -89,16 +89,16 @@ For every Codex-assisted change:
 - **What to study next:** Review the generated domain code, understand Arrange/Act/Assert, then commit the Session 3 slice. Next coding step should add controlled status-change behavior rather than jumping to API endpoints.
 - **Curriculum changes:** Spend extra time in Session 3 on testing fundamentals before moving to API. Session 4 should start with domain behavior methods and tests, then move toward application use cases.
 
-### Session 4 — Persistence and CRUD
+### Session 4 — Domain behavior rules
 
-- **What I learned:**
-- **What I struggled with:**
-- **Codex features I used:**
-- **Artifacts I produced:**
-- **Evidence (tests/build/diff):**
-- **Self-rating (Needs practice / Working knowledge / Confident):**
-- **What to study next:**
-- **Curriculum changes:**
+- **What I learned:** Domain entities can enforce behavior, not only hold data; `Complete()` and `Reopen()` protect invariants better than direct enum changes; passing timestamps into domain methods makes tests predictable and avoids hidden system-clock dependencies; one test should usually diagnose one behavior clearly.
+- **What I struggled with:** Understanding which status transitions should be normal changes versus special methods; recognizing when a test is too broad because it checks multiple methods at once.
+- **Codex features I used:** Prediction before implementation, domain behavior generation, test generation, diff review, test-quality critique, review-driven refactoring.
+- **Artifacts I produced:** Ticket assignment behavior, status transition behavior, completion/reopen behavior, timestamp validation, and `TicketBehaviorTests`.
+- **Evidence (tests/build/diff):** `dotnet test FollowUpAgent.sln --no-restore` passed with 46 tests. NuGet vulnerability warnings remain for test package dependencies and should be handled during dependency/CI hardening.
+- **Self-rating (Needs practice / Working knowledge / Confident):** Working knowledge for reading behavior tests and reviewing test names; needs practice writing domain behavior methods independently.
+- **What to study next:** Commit the Session 4 behavior slice, then start the Application layer with use cases that call domain behavior rather than putting rules in controllers.
+- **Curriculum changes:** Session 4 changed from persistence/CRUD to domain behavior because the project needed stronger business rules before database/API work. Session 5 should introduce the Application layer and a `CreateTicket` use case before API endpoints.
 
 ### Session 5 — Business rules and problem solving
 

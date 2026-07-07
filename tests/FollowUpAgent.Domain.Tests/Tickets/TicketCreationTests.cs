@@ -23,7 +23,9 @@ public sealed class TicketCreationTests
         Assert.Equal(createdAt, ticket.UpdatedAt);
         Assert.Equal(TicketStatus.New, ticket.Status);
         Assert.Equal(TicketPriority.Medium, ticket.Priority);
+        Assert.Null(ticket.AssignedToUserId);
         Assert.Null(ticket.DueDate);
+        Assert.Null(ticket.CompletedAt);
     }
 
     [Theory]
