@@ -100,16 +100,16 @@ For every Codex-assisted change:
 - **What to study next:** Commit the Session 4 behavior slice, then start the Application layer with use cases that call domain behavior rather than putting rules in controllers.
 - **Curriculum changes:** Session 4 changed from persistence/CRUD to domain behavior because the project needed stronger business rules before database/API work. Session 5 should introduce the Application layer and a `CreateTicket` use case before API endpoints.
 
-### Session 5 — Business rules and problem solving
+### Session 5 — Application layer and CreateTicket use case
 
-- **What I learned:**
-- **What I struggled with:**
-- **Codex features I used:**
-- **Artifacts I produced:**
-- **Evidence (tests/build/diff):**
-- **Self-rating (Needs practice / Working knowledge / Confident):**
-- **What to study next:**
-- **Curriculum changes:**
+- **What I learned:** The Application layer coordinates complete user actions while the Domain layer protects entity-specific rules; repositories are interfaces so the Application layer can use fake repositories in tests and EF Core repositories later; permission checks such as rejecting `Viewer` belong in the Application layer; result objects can represent expected business failures without using exceptions as normal flow.
+- **What I struggled with:** Understanding how use-case tests combine several concepts at once: fake repositories, clock abstraction, permission checks, domain creation, saving, and result mapping. The success-path test is the densest because it proves the whole workflow.
+- **Codex features I used:** Prediction before implementation, project scaffolding, use-case generation, interface-based design, fake test dependencies, compiler-error diagnosis, review-driven result-object refinement.
+- **Artifacts I produced:** `FollowUpAgent.Application`, `FollowUpAgent.Application.Tests`, `CreateTicketUseCase`, `CreateTicketCommand`, `CreateTicketResult`, `IClock`, `IUserRepository`, `ITicketRepository`, and application tests for create-ticket success and business failures.
+- **Evidence (tests/build/diff):** `dotnet test FollowUpAgent.sln --no-restore` passed with 56 tests: 46 domain tests and 10 application tests. Existing NuGet vulnerability/source warnings remain for later dependency/CI hardening.
+- **Self-rating (Needs practice / Working knowledge / Confident):** Working knowledge for why repositories are interfaces and why permissions live in Application; needs practice reading dense happy-path use-case tests and understanding exception-to-result mapping.
+- **What to study next:** Review and commit the Session 5 Application slice. Next, introduce persistence via Infrastructure/EF Core or add another application use case depending on readiness.
+- **Curriculum changes:** Session 5 focused on Application use-case coordination before API/database. Keep the next session small: either persistence foundation with EF Core SQLite or one more Application use case for status changes before introducing Infrastructure.
 
 ### Session 6 — Authentication, authorization, auditability
 

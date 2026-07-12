@@ -21,6 +21,16 @@ public sealed class User
 
     public bool IsActive { get; private set; }
 
+    public void Deactivate()
+    {
+        if (!IsActive)
+        {
+            throw new InvalidOperationException("User is already inactive.");
+        }
+
+        IsActive = false;
+    }
+
     public static User Create(string displayName, string email, UserRole role)
     {
         if (string.IsNullOrWhiteSpace(displayName))
