@@ -15,6 +15,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FollowUpAgent.Application",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FollowUpAgent.Application.Tests", "tests\FollowUpAgent.Application.Tests\FollowUpAgent.Application.Tests.csproj", "{ECB9C007-18C2-4425-B05E-1B47C650F9DC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FollowUpAgent.Infrastructure", "src\FollowUpAgent.Infrastructure\FollowUpAgent.Infrastructure.csproj", "{B852A038-36AA-47BE-BDAB-F656B3D929A0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FollowUpAgent.Infrastructure.Tests", "tests\FollowUpAgent.Infrastructure.Tests\FollowUpAgent.Infrastructure.Tests.csproj", "{2D408957-F57B-4224-A396-8AC624744432}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -40,11 +44,21 @@ Global
 		{ECB9C007-18C2-4425-B05E-1B47C650F9DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ECB9C007-18C2-4425-B05E-1B47C650F9DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ECB9C007-18C2-4425-B05E-1B47C650F9DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B852A038-36AA-47BE-BDAB-F656B3D929A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B852A038-36AA-47BE-BDAB-F656B3D929A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B852A038-36AA-47BE-BDAB-F656B3D929A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B852A038-36AA-47BE-BDAB-F656B3D929A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D408957-F57B-4224-A396-8AC624744432}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D408957-F57B-4224-A396-8AC624744432}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D408957-F57B-4224-A396-8AC624744432}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D408957-F57B-4224-A396-8AC624744432}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{4A2BCD20-FD7E-4892-8338-0123116765E3} = {8DFF7FB8-F80A-4B2F-A66A-F410484256AF}
 		{222128D4-CD75-4419-804C-F9B5DBF55482} = {B6BE3B9C-EF7E-4F6E-A7BE-DD2BDF915F09}
 		{69215FC4-31CF-4C5D-B2E0-CF760D940116} = {8DFF7FB8-F80A-4B2F-A66A-F410484256AF}
 		{ECB9C007-18C2-4425-B05E-1B47C650F9DC} = {B6BE3B9C-EF7E-4F6E-A7BE-DD2BDF915F09}
+		{B852A038-36AA-47BE-BDAB-F656B3D929A0} = {8DFF7FB8-F80A-4B2F-A66A-F410484256AF}
+		{2D408957-F57B-4224-A396-8AC624744432} = {B6BE3B9C-EF7E-4F6E-A7BE-DD2BDF915F09}
 	EndGlobalSection
 EndGlobal

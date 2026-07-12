@@ -111,16 +111,16 @@ For every Codex-assisted change:
 - **What to study next:** Review and commit the Session 5 Application slice. Next, introduce persistence via Infrastructure/EF Core or add another application use case depending on readiness.
 - **Curriculum changes:** Session 5 focused on Application use-case coordination before API/database. Keep the next session small: either persistence foundation with EF Core SQLite or one more Application use case for status changes before introducing Infrastructure.
 
-### Session 6 — Authentication, authorization, auditability
+### Session 6 — Infrastructure persistence with EF Core SQLite
 
-- **What I learned:**
-- **What I struggled with:**
-- **Codex features I used:**
-- **Artifacts I produced:**
-- **Evidence (tests/build/diff):**
-- **Self-rating (Needs practice / Working knowledge / Confident):**
-- **What to study next:**
-- **Curriculum changes:**
+- **What I learned:** Infrastructure implements Application interfaces using real technical tools; EF Core configuration belongs in Infrastructure rather than Domain; SQLite in-memory tests verify persistence behavior without a real database server; repository tests should check saving/loading behavior, not repeat every domain rule.
+- **What I struggled with:** Understanding NuGet/package restore differences between the Codex environment and the normal local terminal; separating persistence tests from domain-rule tests; recognizing vulnerability warnings as dependency hygiene work rather than feature failure.
+- **Codex features I used:** Prediction before implementation, infrastructure scaffolding, EF Core mapping generation, repository implementation, SQLite test setup, environment-error diagnosis, local verification handoff.
+- **Artifacts I produced:** `FollowUpAgent.Infrastructure`, `FollowUpAgent.Infrastructure.Tests`, `FollowUpAgentDbContext`, EF Core configurations for `Ticket` and `User`, EF repository implementations, SQLite in-memory test helper, and repository tests.
+- **Evidence (tests/build/diff):** Local `dotnet test FollowUpAgent.sln` passed with 59 tests: 46 domain, 10 application, and 3 infrastructure tests. Build succeeded with dependency vulnerability warnings to handle later.
+- **Self-rating (Needs practice / Working knowledge / Confident):** Working knowledge for why Infrastructure depends on Application/Domain and why EF configuration stays out of Domain; needs practice with EF Core configuration details and integration-style tests.
+- **What to study next:** Review the Infrastructure files, commit the persistence slice, then decide whether to add migrations/DI registration or move to the API layer.
+- **Curriculum changes:** Session 6 changed from auth/audit to persistence because Application repository interfaces were ready. Authentication and auditability will move later after persistence/API basics are in place.
 
 ### Session 7 — AI advisory workflow
 
