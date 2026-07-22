@@ -19,6 +19,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FollowUpAgent.Infrastructur
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FollowUpAgent.Infrastructure.Tests", "tests\FollowUpAgent.Infrastructure.Tests\FollowUpAgent.Infrastructure.Tests.csproj", "{2D408957-F57B-4224-A396-8AC624744432}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FollowUpAgent.Api", "src\FollowUpAgent.Api\FollowUpAgent.Api.csproj", "{A1D8DF48-0F54-4D29-B25E-0C0B51D2744F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FollowUpAgent.Api.IntegrationTests", "tests\FollowUpAgent.Api.IntegrationTests\FollowUpAgent.Api.IntegrationTests.csproj", "{2DF7FB7E-729C-4F08-922E-F04207D4BA12}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -52,6 +56,14 @@ Global
 		{2D408957-F57B-4224-A396-8AC624744432}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2D408957-F57B-4224-A396-8AC624744432}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2D408957-F57B-4224-A396-8AC624744432}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A1D8DF48-0F54-4D29-B25E-0C0B51D2744F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1D8DF48-0F54-4D29-B25E-0C0B51D2744F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1D8DF48-0F54-4D29-B25E-0C0B51D2744F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1D8DF48-0F54-4D29-B25E-0C0B51D2744F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2DF7FB7E-729C-4F08-922E-F04207D4BA12}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2DF7FB7E-729C-4F08-922E-F04207D4BA12}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2DF7FB7E-729C-4F08-922E-F04207D4BA12}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2DF7FB7E-729C-4F08-922E-F04207D4BA12}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{4A2BCD20-FD7E-4892-8338-0123116765E3} = {8DFF7FB8-F80A-4B2F-A66A-F410484256AF}
@@ -60,5 +72,7 @@ Global
 		{ECB9C007-18C2-4425-B05E-1B47C650F9DC} = {B6BE3B9C-EF7E-4F6E-A7BE-DD2BDF915F09}
 		{B852A038-36AA-47BE-BDAB-F656B3D929A0} = {8DFF7FB8-F80A-4B2F-A66A-F410484256AF}
 		{2D408957-F57B-4224-A396-8AC624744432} = {B6BE3B9C-EF7E-4F6E-A7BE-DD2BDF915F09}
+		{A1D8DF48-0F54-4D29-B25E-0C0B51D2744F} = {8DFF7FB8-F80A-4B2F-A66A-F410484256AF}
+		{2DF7FB7E-729C-4F08-922E-F04207D4BA12} = {B6BE3B9C-EF7E-4F6E-A7BE-DD2BDF915F09}
 	EndGlobalSection
 EndGlobal

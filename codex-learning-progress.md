@@ -122,16 +122,16 @@ For every Codex-assisted change:
 - **What to study next:** Review the Infrastructure files, commit the persistence slice, then decide whether to add migrations/DI registration or move to the API layer.
 - **Curriculum changes:** Session 6 changed from auth/audit to persistence because Application repository interfaces were ready. Authentication and auditability will move later after persistence/API basics are in place.
 
-### Session 7 — AI advisory workflow
+### Session 7 — API layer and CreateTicket endpoint
 
-- **What I learned:**
-- **What I struggled with:**
-- **Codex features I used:**
-- **Artifacts I produced:**
-- **Evidence (tests/build/diff):**
-- **Self-rating (Needs practice / Working knowledge / Confident):**
-- **What to study next:**
-- **Curriculum changes:**
+- **What I learned:** The API layer handles HTTP input/output while delegating workflow to the Application layer; Minimal API endpoints can stay thin by mapping requests to commands and results to HTTP responses; API integration tests can exercise the full HTTP → Application → Infrastructure → database flow safely with SQLite in-memory.
+- **What I struggled with:** Understanding noisy EF Core SQL logs during integration tests; distinguishing useful persistence evidence from scary-looking database output; handling package restore differences between Codex and the local terminal.
+- **Codex features I used:** Prediction before implementation, API scaffold generation, endpoint design, dependency-injection wiring, integration-test generation, restore/test diagnosis, local verification handoff.
+- **Artifacts I produced:** `FollowUpAgent.Api`, `FollowUpAgent.Api.IntegrationTests`, `POST /api/tickets`, API request/response/error DTOs, Infrastructure DI registration, `SystemClock`, and API integration tests for success, not found, forbidden, and bad request cases.
+- **Evidence (tests/build/diff):** Local `dotnet test FollowUpAgent.sln` passed with 63 tests: 46 domain, 10 application, 3 infrastructure, and 4 API integration tests.
+- **Self-rating (Needs practice / Working knowledge / Confident):** Working knowledge for API/Application/Domain/Infrastructure flow; needs practice reading integration-test setup and EF Core SQL logs.
+- **What to study next:** Review the API endpoint and integration tests, commit the Session 7 API slice, then decide whether to add a `GET /api/tickets/{id}` endpoint or start audit/AI advisory modeling.
+- **Curriculum changes:** Session 7 changed from AI advisory workflow to API endpoint work because the project had Domain, Application, and Infrastructure ready. AI advisory workflow moves later after the basic HTTP flow is committed.
 
 ### Session 8 — Tool-calling agent workflow
 
